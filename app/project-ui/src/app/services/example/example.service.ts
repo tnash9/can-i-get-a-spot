@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ExampleService {
-  public VALUES_API_ENDPOINT = 'http://localhost:60443/api/values';
+  public VALUES_API_ENDPOINT = 'http://127.0.0.1:8080/api/values';
 
   constructor(private httpClient: HttpClient) {}
 
