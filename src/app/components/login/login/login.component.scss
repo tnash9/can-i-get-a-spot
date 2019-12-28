@@ -50,8 +50,9 @@ button {
 .login span {
   position: relative;
   letter-spacing: 0.25vw;
-  font-variant: small-caps;
+  // font-variant: small-caps;
   vertical-align: middle;
+  transition: all 0.5s ease;
 }
 
 .login svg {
@@ -64,7 +65,7 @@ button {
   stroke: $color-white;
   stroke-width: 2;
   transform: translateX(-5px);
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .login:hover:before {
@@ -72,7 +73,12 @@ button {
   background: $color-green;
 }
 
+.login:hover span {
+  color: $color-black;
+}
+
 .login:hover svg {
+  stroke: $color-black;
   transform: translateX(0);
 }
 
