@@ -1,0 +1,88 @@
+@import '../../../../variables.scss';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(to right bottom, $color-light-blue 50%, $color-dark-blue 50%);
+}
+
+.title {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.title h1 {
+  color: $color-white;
+  margin-top: 3vh;
+  margin-left: 3vh;
+  font-size: 300%;
+}
+
+button {
+  background: none;
+  border: none;
+  color: $color-white;
+}
+
+.login {
+  position: relative;
+  margin: auto;
+  padding: 15px 22px;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+}
+
+.login:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgba($color-green, .8);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
+}
+
+.login span {
+  position: relative;
+  letter-spacing: 0.25vw;
+  vertical-align: middle;
+  transition: all 0.5s ease;
+}
+
+.login svg {
+  position: relative;
+  top: 0;
+  margin-left: 1vw;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: $color-white;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.5s ease;
+}
+
+.login:hover:before {
+  width: 100%;
+  background: $color-green;
+}
+
+.login:hover span {
+  color: $color-dark-blue;
+}
+
+.login:hover svg {
+  stroke: $color-dark-blue;
+  transform: translateX(0);
+}
+
+.login:active, .login:focus {
+  transform: scale(0.96);
+  outline: none !important;
+  border: 2px solid $color-green;
+}

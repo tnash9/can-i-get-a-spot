@@ -1,12 +1,10 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="page">
+  <div class="title">
+    <h1>Can I Get A Spot</h1>
+  </div>
 
-  <img width="300" alt="Spotify Logo" src="../assets/images/spotify_logo.svg">
-  
-</div>
-<br><br>
-<div style="text-align:center">
-  <button (click)="authorizeUser();">Authorize Yourself!</button>
+  <button class="login" (click)="authorizeUser();">
+    <span>Login with Spotify</span>
+    <svg width="13px" height="10px" viewBox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+  </button>
 </div>
