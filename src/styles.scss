@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@import '_variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro:200&display=swap');
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $color-dark-blue;
+}
+
+h1, h2, h3 {
+  font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+h4, h5, h6, p {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: $color-dark-blue;
+
+}
+
+/* BOOTSTRAP STYLE */
+.btn.btn-success {
+  background-color: $color-green;
+  color: $color-white;
+  border-color: $color-green;
+  transition: ease-in-out .3s;
+}
+
+.btn.btn-success:hover {
+  background-color: darken($color-green, 10%);
+}
+/* END BOOTSTRAP STYLE */
+
+.center {
+  text-align: center;
+}
