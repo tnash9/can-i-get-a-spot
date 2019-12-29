@@ -5,23 +5,25 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: $color-dark-blue;
+  background-color: $color-light-blue;
 }
 
 h1, h2, h3 {
   font-family: 'Source Sans Pro', sans-serif !important;
 }
 
-h4, h5, h6, p {
+h4, h5, h6, p, a {
   font-family: 'Open Sans', sans-serif !important;
 }
 
 .page {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   overflow-y: scroll;
-  background-color: $color-dark-blue;
-
+  background-color: lighten($color-light-blue, 0%);
 }
 
 /* BOOTSTRAP STYLE */
