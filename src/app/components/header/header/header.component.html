@@ -1,13 +1,24 @@
-<div class="header navbar navbar-expand">
-  <a class="navbar-brand">Can I Get A Spot</a>
+<div class="header navbar navbar-expand static-top">
+  <a class="navbar-brand" routerLink="home">
+    <h1>Can I Get A Spot</h1>
+  </a>
 
   <ul class="nav navbar-nav">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Page 1</a></li>
-    <li><a href="#">Page 2</a></li>
-    <li><a href="#">Page 3</a></li>
+    <li><a class="nav-item" routerLink="home">Home</a></li>
+    <li><a class="nav-item" routerLink="test">Test</a></li>
+    <li><a class="nav-item" routerLink="test2">Test 2</a></li>
+    <li>
+      <div ngbDropdown class="d-inline-block">
+        <a class="nav-item" id="skillDropdown" ngbDropdownToggle>Test 3</a>
+        <div ngbDropdownMenu class="dropdown-items">
+          <a class="nav-item" ngbDropdownItem routerLink="home">Test</a>
+          <a class="nav-item" ngbDropdownItem routerLink="home">Test Med</a>
+          <a class="nav-item" ngbDropdownItem routerLink="home">Test Ridiculously Long String</a>
+        </div>
+      </div>
+    </li>
   </ul>
-  
+
   <form class="form-inline">
     <input class="form-control mr-sm-2 search" type="search" placeholder="Search Spotify" aria-label="Search">
   </form>

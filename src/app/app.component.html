@@ -1,6 +1,10 @@
-<app-header></app-header>
-<app-nav></app-nav>
-
-<div class="page">
-  <router-outlet></router-outlet>
+<div class="home-nav" *ngIf="!router.isActive('login'); else login">
+  <app-header></app-header>  
+  <div class="page">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+
+<ng-template #login>
+  <router-outlet></router-outlet>
+</ng-template>
