@@ -1,11 +1,2 @@
 <div class="page">
-  <div style="text-align:center">
-    <button (click)="getTopArtists();">Get Top Artists</button>
-  </div>
-  <ul *ngIf="topArtists">
-    <li *ngFor="let artist of topArtists">
-      <img width="80" alt="Image of {{artist.name}}" src="{{artist.images[2].url}}">
-      {{artist.name}}
-    </li>
-  </ul>
 </div>
