@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { User } from 'src/app/models/user';
+import { Artist } from 'src/app/models/artist';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,7 @@ export class SpotifyService {
   authorizeUser() {
     // authorize user if no token
     if (!this.auth_token) {
-      const scopes = ['user-top-read'];
+      const scopes = ['user-read-private', 'user-read-email'];
       let auth = `${this.AUTH_API_ENDPOINT}?client_id=${this.env.client_id}&scope=${scopes.join('%20')}&response_type=token&redirect_uri=${this.env.base_url}/home`;
       window.location.href = auth;
     }
@@ -39,13 +41,24 @@ export class SpotifyService {
     this.auth_token = hash.access_token;
   }
 
-  getTopArtists(): Observable<any> {
+  getUserInfo(): Observable<User> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.auth_token}`
       })
     };
 
-    return this.httpClient.get<any>(`${this.SPOTIFY_API_ENDPOINT}/me/top/artists`, httpOptions);
+    return this.httpClient.get<User>(`${this.SPOTIFY_API_ENDPOINT}/me`, httpOptions);
+  }
+
+  getTopArtists(): Observable<Array<Artist>> {
+    const httpOptions = {
+      params: new HttpParams().set('limit', '10'),
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.auth_token}`
+      })
+    };
+
+    return this.httpClient.get<Array<Artist>>(`${this.SPOTIFY_API_ENDPOINT}/me/top/artists`, httpOptions);
   }
 }

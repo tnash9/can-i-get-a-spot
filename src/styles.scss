@@ -26,6 +26,149 @@ h4, h5, h6, p, a {
   background-color: lighten($color-light-blue, 0%);
 }
 
+.user-info {
+  position: absolute;
+  margin-top: 2vh;
+  right: 0;
+
+  & .user-name {
+    display: inline;
+
+    & h4 {
+      display: inline;
+      color: $color-white;
+    }
+  }
+
+  & .user-pic {
+    border-radius: 50%;
+    margin: 0 1.25vw;
+    width: 65px;
+    height: 65px;
+  }
+}
+
+.content {
+  margin: 2.5vh 1.25vw;
+
+  & .subtitle {
+    color: $color-white;
+    margin-right: .5%;
+    margin-bottom: 1%;
+
+    & svg {
+      position: relative;
+      top: 0;
+      margin-left: 1vw;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke: $color-white;
+      stroke-width: 2;
+      transform: translateX(-5px);
+      transition: all 0.5s ease;
+    }
+  }
+
+  & .cards {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+
+    & .card {
+      flex: 0 0 auto;
+      width: 25%;
+      height: 55vh;
+      border: none;
+      margin-right: 2%;
+      border-radius: 8px;
+      background: linear-gradient(to right bottom, $color-dark-blue, $color-light-blue 125%);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.4s ease-in-out;
+      color: $color-white;
+
+      & .card-header {
+        height: 30%;
+        width: 100%;
+        background-color: $color-green;
+        background-size: cover;
+        border-radius: 8px 8px 0 0;
+
+        & .title {
+          display: flex;
+          justify-content: center;
+          margin-top: 2.5%;
+          margin-bottom: 1.25%;
+  
+          & h3 {
+            color: $color-dark-blue;
+          }
+        }
+      }
+
+      & .image {
+        width: 114px;
+        height: 114px;
+        top: 35%;
+        left: 50%;
+        margin: -77px 0 0 -57px;
+        border-radius: 100%;
+        background-size: contain;
+        position: absolute;
+        z-index: 1;
+
+        & .artist-pic {
+          width: 114px;
+          height: 114px;
+          border-radius: 50%;
+          border: $color-green solid 2px;
+        }
+      }
+
+      & .card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 60%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 10%;
+        padding-top: 20%;
+        background: $color-dark-blue;
+      }
+
+      & .card-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: 10%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: $color-dark-blue;
+        border-top: $color-light-blue solid 2px;
+        border-radius: 0 0 8px 8px;
+
+        & a {
+          color: $color-white;
+
+          &:hover {
+            color: $color-green;
+          }
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 32px 24px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
 /* BOOTSTRAP STYLE */
 .btn.btn-success {
   background-color: $color-green;
@@ -37,8 +180,103 @@ h4, h5, h6, p, a {
 .btn.btn-success:hover {
   background-color: darken($color-green, 10%);
 }
+
 /* END BOOTSTRAP STYLE */
 
 .center {
   text-align: center;
 }
+
+/* BUTTONS */
+.btn-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+
+  .btn-default {
+    background: none;
+    border: none;
+    color: $color-white;
+    position: relative;
+    margin: auto;
+    padding: 15px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      border-radius: 28px;
+      background: rgba($color-green, .8);
+      width: 56px;
+      height: 56px;
+      transition: all 0.3s ease;
+    }
+  
+    & span {
+      position: relative;
+      letter-spacing: 0.25vw;
+      vertical-align: middle;
+      transition: all 0.5s ease;
+    }
+  
+    & svg {
+      position: relative;
+      top: 0;
+      margin-left: 1vw;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke: $color-white;
+      stroke-width: 2;
+      transform: translateX(-5px);
+      transition: all 0.5s ease;
+    }
+  
+    &:hover:before {
+      width: 100%;
+      background: $color-green;
+    }
+  
+    &:hover span {
+      color: $color-dark-blue;
+    }
+  
+    &:hover svg {
+      stroke: $color-dark-blue;
+      transform: translateX(0);
+    }
+  
+    &:active, .btn-default:focus {
+      transform: scale(0.96);
+      outline: none !important;
+      border: 2px solid $color-green;
+    }
+  }
+}
+/* END BUTTONS */
+
+
+/* ANIMATIONS */
+.bounce {
+  animation: 2s bounce 5, 10s fade;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bounce {
+  50% {
+   transform: translateX(15px);
+  }
+}
+
+@keyframes fade {
+  0% { opacity: 1; }
+  75% { opacity: .5; }
+  100% { opacity: 0; }
+}
+/* END ANIMATIONS */

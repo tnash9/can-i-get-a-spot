@@ -5,7 +5,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ExampleService } from './services/example/example.service';
 import { HomeComponent } from './components/home/home/home.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { HeaderComponent } from './components/header/header/header.component';
@@ -23,7 +22,7 @@ import { HeaderComponent } from './components/header/header/header.component';
     HttpClientModule,
     NgbModule,
   ],
-  providers: [ExampleService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
