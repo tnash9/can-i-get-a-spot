@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { User } from 'src/app/models/user';
 import { Artist } from 'src/app/models/artist';
+import { Track } from 'src/app/models/track';
 
 @Injectable({
   providedIn: 'root'
@@ -60,5 +61,16 @@ export class SpotifyService {
     };
 
     return this.httpClient.get<Array<Artist>>(`${this.SPOTIFY_API_ENDPOINT}/me/top/artists`, httpOptions);
+  }
+
+  getTopTracks(): Observable<Array<Track>> {
+    const httpOptions = {
+      params: new HttpParams().set('limit', '10'),
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.auth_token}`
+      })
+    };
+
+    return this.httpClient.get<Array<Track>>(`${this.SPOTIFY_API_ENDPOINT}/me/top/tracks`, httpOptions);
   }
 }

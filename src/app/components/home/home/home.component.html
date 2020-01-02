@@ -1,12 +1,4 @@
 <div class="page">
-  <!-- IDO WHAT TO DO WITH THIS YET... -->
-  <!-- <div class="user-info">
-    <div class="user-name">
-      <h4>{{user?.display_name}}</h4>
-    </div>
-    <img class="user-pic" src="{{user?.images[0].url}}" alt="User Profile Picture">
-  </div> -->
-
   <div class="content">
     <div class="top-artists">
       <div class="subtitle">
@@ -19,11 +11,11 @@
         <div class="card" *ngFor="let artist of topArtists">
           <div class="card-header">
             <div class="title">
-              <h3>{{artist.name}}</h3>
+              <h4>{{artist.name}}</h4>
             </div>
           </div>
           <div class="image">
-            <img class="artist-pic" src="{{artist?.images[2].url}}">
+            <a href="{{artist?.external_urls?.spotify}}" target="_blank"><img class="artist-pic" src="{{artist?.images[2].url}}"></a>
           </div>
           <div class="card-content">
             <div class="btn-container">
@@ -41,6 +33,36 @@
           </div>
           <div class="card-footer">
             <a class="spotify-link" href="{{artist?.external_urls?.spotify}}/about" target="_blank">Open in Spotify</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-tracks">
+      <div class="subtitle">
+        <h2>Your Top Tracks</h2>
+      </div>
+      <div class="cards tracks">
+        <div class="card" *ngFor="let track of topTracks">
+          <div class="card-image">
+            <div class="image">
+              <a href="{{track?.external_urls?.spotify}}" target="_blank"><img class="track-pic" src="{{track?.album.images[1].url}}"></a>
+            </div>
+          </div>
+          <div class="card-header">
+            <h4>{{getTrackTitle(track)}}</h4>
+            <p>{{concatArtistList(track?.artists)}}</p>
+          </div>
+          <div class="card-content">
+            <div class="btn-container">
+              <button class="btn-default">
+                <span>Similar Tracks</span>
+                <svg width="13px" height="10px" viewBox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg>
+              </button>
+            </div>
+            <div class="line"></div>
+          </div>
+          <div class="card-footer">
+            <a class="spotify-link" href="{{track?.external_urls?.spotify}}" target="_blank">Open in Spotify</a>
           </div>
         </div>
       </div>

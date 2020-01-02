@@ -18,3 +18,16 @@ export class Artist {
     Object.assign(this, json);
   }
 }
+
+export class SimplifiedArtist {
+  external_urls: ExternalUrls;
+  href: string;
+  id: string;
+  name: string;
+  type: string;
+  uri: string;
+
+  constructor(json: JSON) {
+    Object.assign(this, json);
+  }
+}
