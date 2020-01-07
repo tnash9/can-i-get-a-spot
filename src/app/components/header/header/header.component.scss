@@ -9,8 +9,12 @@
 
   & .navbar-brand {
     color: $color-white;
-    font-size: 200%;
     transition: all .3s;
+    
+    & h1 {
+      font-size: 225%;
+      font-weight: 200;
+    }
 
     &:hover {
       color: lighten($color-light-blue, 50%);

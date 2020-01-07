@@ -13,13 +13,14 @@
   position: absolute;
   width: 100%;
   top: 0;
-}
 
-.title h1 {
-  color: $color-white;
-  margin-top: 2vh;
-  margin-left: 2vh;
-  font-size: 300%;
+  & h1 {
+    color: $color-white;
+    margin-top: 1.25vh;
+    margin-left: .25vw;
+    font-size: 300%;
+    font-weight: 200;
+  }
 }
 
 button {
